@@ -1,5 +1,23 @@
 # Pomodoro Changelog
 
+## [✨ AI Enhancements] - 2025-02-21
+
+## [Improvement] - 2025-01-07
+
+- Add support for hiding timer when stopped
+
+## [Chore] - 2025-01-03
+
+- Update preferences organization
+
+## [Update] - 2024-12-12
+
+- Move timer to dropdown menu if it's hidden
+
+## [Enhancement] - 2024-12-11
+
+- Add the weekly and daily statistics to the `View Pomodoro Stats` command
+
 ## [Fixes] - 2024-12-08
 
 - Fix short break timer

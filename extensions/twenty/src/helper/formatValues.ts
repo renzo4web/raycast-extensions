@@ -30,6 +30,18 @@ export function formatValues(values: Record<string, any>, objectRecordMetadata: 
           }
           break;
         }
+        case "RATING": {
+          if (formattedValues[key] === "") {
+            formattedValues[key] = null;
+          }
+          break;
+        }
+        case "MULTI_SELECT": {
+          if (formattedValues[key] === "") {
+            formattedValues[key] = null;
+          }
+          break;
+        }
         default:
           break;
       }
