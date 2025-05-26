@@ -1,12 +1,3 @@
-interface Prompt {
-  tags: string[];
-  title: string;
-  slug: string;
-  libs: string[];
-  content: string;
-  author: Author;
-}
-
 interface Section {
   name: string;
   slugs: string[];
@@ -18,31 +9,52 @@ interface Author {
   avatar: string;
 }
 
-interface GithubFileContent {
+interface Video {
+  title: string;
+  description: string;
+  url: string;
+  author: {
+    name: string;
+    image: string;
+  };
+}
+
+interface CursorRule {
+  tags: string[];
+  title: string;
+  slug: string;
+  libs: string[];
+  content: string;
+  author: Author;
+  // count of how many times the cursor rule has been copied on cursor.directory
+  // null if not available
+  count: number | null;
+  isLocal: boolean;
+}
+
+interface Project {
   name: string;
   path: string;
-  sha: string;
-  size: number;
-  url: string;
-  html_url: string;
-  git_url: string;
-  download_url: string;
-  type: string;
-  content: string;
-  encoding: string;
+  lastModifiedTime: number;
 }
 
-interface RuleObject {
-  tags?: string[];
-  title?: string;
-  slug?: string;
-  content?: string;
-  author?: {
-    name?: string;
-    url?: string;
-    avatar?: string;
-  };
-  libs?: string[];
-}
+type AllCursorRulesResponse = {
+  data: Omit<CursorRule, "count">[];
+};
 
-export type { Prompt, Author, Section, GithubFileContent, RuleObject };
+type PopularCursorRulesResponse = {
+  data: (Omit<CursorRule, "count"> & { count: number })[];
+};
+
+type APIResponse = AllCursorRulesResponse | PopularCursorRulesResponse;
+
+export type {
+  Project,
+  CursorRule,
+  Author,
+  Section,
+  AllCursorRulesResponse,
+  PopularCursorRulesResponse,
+  APIResponse,
+  Video,
+};
